@@ -8,7 +8,7 @@
     <OutputType>Exe</OutputType>
     <StartupObject>SherlockMusicFileConverterProgram.CoreModule</StartupObject>
     <RootNamespace>SherlockMusicFileConverterProgram</RootNamespace>
-    <AssemblyName>Sherlock Music File Converter</AssemblyName>
+    <AssemblyName>smfc</AssemblyName>
     <FileAlignment>512</FileAlignment>
     <MyType>Console</MyType>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>

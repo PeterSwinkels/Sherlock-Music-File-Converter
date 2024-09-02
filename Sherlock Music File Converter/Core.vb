@@ -44,7 +44,7 @@ Public Module CoreModule
             Next FileO
          Else
             With My.Application.Info
-               Console.WriteLine($"{ .Title} v{ .Version} - by: { .CompanyName}")
+               Console.WriteLine($"{ .Title} v{ .Version} - by: { .CompanyName} { .Copyright}")
                Console.WriteLine()
                Console.WriteLine(.Description)
                Console.WriteLine()
@@ -52,16 +52,15 @@ Public Module CoreModule
             End With
          End If
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
+         DisplayError(ExceptionO)
       End Try
    End Sub
 
-   'This procedure handles any errors that occur.
-   Private Sub HandleError(ExceptionO As Exception)
+   'This procedure displays any errors that occur.
+   Private Sub DisplayError(ExceptionO As Exception)
       Try
-         Console.WriteLine()
          Console.ForegroundColor = ConsoleColor.Red
-         Console.WriteLine(ExceptionO.Message)
+         Console.Error.WriteLine($"{NewLine}{ExceptionO.Message}")
          Console.ResetColor()
          Console.ReadLine()
       Catch
@@ -76,7 +75,7 @@ Public Module CoreModule
          If Not Data.GetRange(Data.Count - SUFFIX_SPACE_COUNT, SUFFIX_SPACE_COUNT).TrueForAll(Function(ByteV As Byte) ByteV = ToInt32(" "c)) Then Return False
          Return True
       Catch ExceptionO As Exception
-         HandleError(ExceptionO)
+         DisplayError(ExceptionO)
       End Try
 
       Return False
